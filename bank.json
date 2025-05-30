@@ -47,6 +47,130 @@
         {
             "betrag": 1200,
             "grund": "Kleingewinn bei Slotmachine (Zweier)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 700,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4a)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 3500,
+            "grund": "Slot-Gewinn (Dreifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf49)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Slot-Gewinn (Dreifach \ud83c\udf49)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 900,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \u2b50)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 500,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf52)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 700,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4a)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 500,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf52)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf49)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
         }
     ],
     "1215319399213305946": [
@@ -243,6 +367,62 @@
         {
             "betrag": 1200,
             "grund": "Kleingewinn bei Slotmachine (Zweier)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 700,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4a)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf49)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4b)"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 500,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf52)"
         },
         {
             "betrag": -1000,
