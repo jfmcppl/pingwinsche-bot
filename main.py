@@ -175,6 +175,11 @@ async def ping(ctx):
 @bot.command()
 @casino_channel_only()
 async def slotmachine(ctx, bet: int):
+    allowed_channel_id = 1377775929249497159
+    if ctx.channel.id != allowed_channel_id:
+        await ctx.send(f"Dieser Befehl ist nur im dafür vorgesehenen Kanal erlaubt.")
+        return
+
     user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
@@ -199,6 +204,7 @@ async def slotmachine(ctx, bet: int):
     result = [random.choice(weighted_slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
+    # Neue Multiplikatoren (spielerfreundlicher)
     triple_multiplier_map = {
         '🍒': 3,
         '🍋': 3.5,
@@ -209,19 +215,21 @@ async def slotmachine(ctx, bet: int):
     }
 
     double_multiplier_map = {
-        '🍒': 0.5,
-        '🍋': 0.6,
-        '🍊': 0.7,
-        '🍉': 1.0,
-        '⭐': 1.2,
-        '💎': 1.5
+        '🍒': 0.7,   # 70% zurück
+        '🍋': 0.8,   # 80% zurück
+        '🍊': 0.8,   # 80% zurück
+        '🍉': 1.0,   # 100% Einsatz zurück
+        '⭐': 1.0,   # 100% Einsatz zurück (kleiner Gewinn)
+        '💎': 1.2    # 120% Einsatz zurück (höherer Gewinn)
     }
 
+    # Prüfen auf Dreier-Kombi (Jackpot)
     if result[0] == result[1] == result[2]:
         symbol = result[0]
         payout = int(bet * triple_multiplier_map.get(symbol, 3))
         update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
         await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
+    # Prüfen auf Zweier-Kombi
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
         # Symbol ermitteln, das mindestens 2x vorkommt
         if result[0] == result[1] or result[0] == result[2]:
