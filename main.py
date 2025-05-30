@@ -9,7 +9,7 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-# --- Webserver-Setup für UptimeRobot ---
+# --- Webserver für UptimeRobot ---
 app = Flask('')
 
 @app.route('/')
@@ -30,10 +30,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-# --- Bot initialisieren ---
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-# --- Bank-Datei & Daten ---
+# --- Bankdaten ---
 BANK_FILE = 'bank.json'
 bank_data = {}
 
@@ -47,9 +46,8 @@ def load_bank():
             bank_data = json.load(f)
             print(f"📊 Bank-Daten geladen: {len(bank_data)} Konten")
     except json.JSONDecodeError:
-        print("❌ Fehler beim Lesen der bank.json - verwende leere Bank")
+        print("❌ Fehler beim Lesen der bank.json")
         bank_data = {}
-    return bank_data
 
 def save_bank(data):
     global bank_data
@@ -57,29 +55,25 @@ def save_bank(data):
     with open(BANK_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
 
-# --- Dateiüberwachung für bank.json ---
 class BankFileHandler(FileSystemEventHandler):
     def on_modified(self, event):
-        if event.src_path.endswith('bank.json') and not event.is_directory:
+        if event.src_path.endswith('bank.json'):
             print("🔄 bank.json wurde geändert - lade Daten neu...")
             time.sleep(0.1)
             load_bank()
             print(f"✅ Neue Bank-Daten: {bank_data}")
 
 def start_file_watcher():
-    event_handler = BankFileHandler()
+    handler = BankFileHandler()
     observer = Observer()
-    observer.schedule(event_handler, path='.', recursive=False)
+    observer.schedule(handler, path='.', recursive=False)
     observer.start()
     print("👀 Datei-Überwachung für bank.json gestartet")
-    return observer
 
-# --- Bank-Hilfsfunktionen ---
+# --- Bank-Funktionen ---
 def get_user_gold(user_id):
     entries = bank_data.get(user_id, [])
-    if isinstance(entries, list):
-        return sum(entry.get("betrag", 0) for entry in entries)
-    return 0
+    return sum(entry.get("betrag", 0) for entry in entries)
 
 def update_user_gold(user_id, amount, reason):
     if user_id not in bank_data:
@@ -87,24 +81,29 @@ def update_user_gold(user_id, amount, reason):
     bank_data[user_id].append({"betrag": amount, "grund": reason})
     save_bank(bank_data)
 
-# --- Events & Commands ---
+# --- Events ---
 @bot.event
 async def on_ready():
-    print(f'🤖 Die Pingwinsche Staatsbank ist online als {bot.user}')
+    print(f"🤖 Die Pingwinsche Staatsbank ist online als {bot.user}")
     load_bank()
     start_file_watcher()
     print(f"📌 Registrierte Commands: {list(bot.commands)}")
+
+# --- Standard-Commands ---
+@bot.command()
+async def ping(ctx):
+    await ctx.send("🏓 Pong!")
 
 @bot.command()
 async def balance(ctx):
     user_id = str(ctx.author.id)
     load_bank()
-    total_gold = get_user_gold(user_id)
+    gold = get_user_gold(user_id)
     try:
-        await ctx.author.send(f'{ctx.author.name}, dein Kontostand beträgt {total_gold} Gold.')
+        await ctx.author.send(f"{ctx.author.name}, dein Kontostand: {gold} Gold")
         await ctx.message.delete()
     except discord.Forbidden:
-        await ctx.send(f"{ctx.author.mention}, ich kann dir keine Direktnachricht schicken. Bitte aktiviere DMs von Servermitgliedern.")
+        await ctx.send("Bitte aktiviere DMs für Nachrichten von mir.")
 
 @bot.command()
 @commands.has_permissions(administrator=True)
@@ -112,155 +111,83 @@ async def addgold(ctx, member: discord.Member, amount: int, *, grund: str = "Man
     user_id = str(member.id)
     load_bank()
     update_user_gold(user_id, amount, grund)
-    await ctx.send(f'{amount} Gold wurde dem Konto von {member.display_name} gutgeschrieben. Grund: {grund}')
+    await ctx.send(f"{amount} Gold wurde {member.display_name} gutgeschrieben. Grund: {grund}")
 
+@bot.command()
+async def goldhistory(ctx):
+    user_id = str(ctx.author.id)
+    load_bank()
+    if user_id not in bank_data:
+        await ctx.send("Keine Einträge gefunden.")
+        return
+    lines = []
+    total = 0
+    for e in bank_data[user_id]:
+        total += e["betrag"]
+        lines.append(f"{e['betrag']:+} Gold — {e['grund']}")
+    lines.append(f"\nGesamt: {total} Gold")
+    filename = f"gold_{user_id}.txt"
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    await ctx.author.send(file=discord.File(filename))
+    await ctx.message.delete()
+    os.remove(filename)
+
+# --- Casino: Coinflip mit Hausvorteil ---
 @bot.command()
 async def coinflip(ctx, bet: int, choice: str = None):
     user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
-
-    if bet <= 0:
-        await ctx.send("Bitte setze einen positiven Betrag!")
+    if bet <= 0 or bet > gold:
+        await ctx.send("Ungültiger Einsatz.")
         return
-    if bet > gold:
-        await ctx.send("Du hast nicht genug Gold!")
-        return
-    if choice is None:
-        await ctx.send("Bitte wähle Kopf oder Zahl! Beispiel: `!coinflip 100 Kopf`")
+    if choice is None or choice.lower() not in ["kopf", "zahl"]:
+        await ctx.send("Nutze: !coinflip <betrag> <kopf|zahl>")
         return
 
-    choice = choice.lower()
-    if choice not in ["kopf", "zahl"]:
-        await ctx.send("Bitte wähle 'Kopf' oder 'Zahl'!")
-        return
-
-    result = random.choices(["kopf", "zahl"], weights=[0.475, 0.525])[0]
+    # Hausvorteil: 49% Gewinnchance
+    result = random.choices(["kopf", "zahl"], weights=[49, 49])[0]
     await ctx.send(f"🪙 Die Münze zeigt: **{result.capitalize()}**")
 
-    if result == choice:
-        payout = int(bet * 0.95)
-        update_user_gold(user_id, payout, "Gewinn beim Coinflip (Hausvorteil)")
-        await ctx.send(f"🎉 Du hast gewonnen! Dein Gewinn: {payout} Gold.")
+    if result == choice.lower():
+        update_user_gold(user_id, bet, "Gewinn beim Coinflip")
+        await ctx.send(f"🎉 Du gewinnst {bet} Gold!")
     else:
         update_user_gold(user_id, -bet, "Verlust beim Coinflip")
-        await ctx.send(f"😢 Du hast verloren und {bet} Gold verloren.")
+        await ctx.send(f"😢 Du verlierst {bet} Gold.")
 
+# --- Casino: Slotmachine mit Hausvorteil ---
 @bot.command()
 async def slotmachine(ctx, bet: int):
     user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
-
-    if bet <= 0:
-        await ctx.send("Bitte setze einen positiven Betrag!")
-        return
-    if bet > gold:
-        await ctx.send("Du hast nicht genug Gold!")
+    if bet <= 0 or bet > gold:
+        await ctx.send("Ungültiger Einsatz.")
         return
 
     slots = ['🍒', '🍋', '🍊', '🍉', '⭐', '💎']
     result = [random.choice(slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
+    # Hausvorteil: reduzierte Auszahlungsrate
     if result[0] == result[1] == result[2]:
-        payout = int(bet * 4)
-        update_user_gold(user_id, payout, "Gewinn bei Slotmachine (Dreier)")
-        await ctx.send(f"🎉 Dreier! Du gewinnst {payout} Gold.")
+        payout = bet * 4  # statt x5
+        update_user_gold(user_id, payout, "Slotmachine Dreier")
+        await ctx.send(f"🎉 Jackpot! Gewinn: {payout} Gold")
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
-        payout = int(bet * 1.5)
-        update_user_gold(user_id, payout, "Gewinn bei Slotmachine (Zweier)")
-        await ctx.send(f"🎉 Zwei gleiche Symbole! Gewinn: {payout} Gold.")
+        payout = int(bet * 1.5)  # statt x2
+        update_user_gold(user_id, payout, "Slotmachine Zweier")
+        await ctx.send(f"🎉 Gewinn: {payout} Gold")
     else:
-        update_user_gold(user_id, -bet, "Verlust bei Slotmachine")
-        await ctx.send(f"😞 Kein Gewinn. Du verlierst {bet} Gold.")
+        update_user_gold(user_id, -bet, "Slotmachine Verlust")
+        await ctx.send(f"😢 Verlust: {bet} Gold")
 
-@bot.command()
-async def blackjack(ctx, bet: int):
-    user_id = str(ctx.author.id)
-    load_bank()
-    gold = get_user_gold(user_id)
-
-    if bet <= 0:
-        await ctx.send("Bitte setze einen positiven Betrag!")
-        return
-    if bet > gold:
-        await ctx.send("Du hast nicht genug Gold!")
-        return
-
-    def card_value(card):
-        if card in ['J', 'Q', 'K']:
-            return 10
-        elif card == 'A':
-            return 11
-        else:
-            return int(card)
-
-    def hand_value(hand):
-        value = sum(card_value(card) for card in hand)
-        aces = hand.count('A')
-        while value > 21 and aces:
-            value -= 10
-            aces -= 1
-        return value
-
-    def format_hand(hand):
-        return ', '.join(hand)
-
-    deck = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'] * 4
-    random.shuffle(deck)
-
-    player_hand = [deck.pop(), deck.pop()]
-    dealer_hand = [deck.pop(), deck.pop()]
-
-    await ctx.send(f"🃏 Deine Karten: {format_hand(player_hand)} (Wert: {hand_value(player_hand)})")
-    await ctx.send(f"🃏 Dealer zeigt: {dealer_hand[0]} und eine verdeckte Karte")
-
-    if hand_value(player_hand) == 21:
-        if hand_value(dealer_hand) == 21:
-            await ctx.send("🃏 Beide haben Blackjack! Unentschieden.")
-            return
-        else:
-            payout = int(bet * 1.4)
-            update_user_gold(user_id, payout, "Blackjack Gewinn (Hausvorteil)")
-            await ctx.send(f"🎉 Blackjack! Du gewinnst {payout} Gold!")
-            return
-
-    while hand_value(player_hand) < 17:
-        player_hand.append(deck.pop())
-        await ctx.send(f"🃏 Du ziehst: {player_hand[-1]} | Deine Karten: {format_hand(player_hand)} (Wert: {hand_value(player_hand)})")
-
-    player_total = hand_value(player_hand)
-
-    if player_total > 21:
-        update_user_gold(user_id, -bet, "Verlust bei Blackjack (Bust)")
-        await ctx.send(f"💥 Du hast dich überkauft! Du verlierst {bet} Gold.")
-        return
-
-    await ctx.send(f"🃏 Dealer deckt auf: {format_hand(dealer_hand)} (Wert: {hand_value(dealer_hand)})")
-
-    while hand_value(dealer_hand) < 17:
-        dealer_hand.append(deck.pop())
-        await ctx.send(f"🃏 Dealer zieht: {dealer_hand[-1]} | Dealer Karten: {format_hand(dealer_hand)} (Wert: {hand_value(dealer_hand)})")
-
-    dealer_total = hand_value(dealer_hand)
-
-    if dealer_total > 21:
-        update_user_gold(user_id, int(bet * 0.95), "Gewinn bei Blackjack (Dealer Bust)")
-        await ctx.send(f"🎉 Dealer hat sich überkauft! Du gewinnst {int(bet * 0.95)} Gold!")
-    elif player_total > dealer_total:
-        update_user_gold(user_id, int(bet * 0.95), "Gewinn bei Blackjack")
-        await ctx.send(f"🎉 Du gewinnst! Du bekommst {int(bet * 0.95)} Gold!")
-    elif player_total == dealer_total:
-        await ctx.send("🤝 Unentschieden! Dein Einsatz wird zurückerstattet.")
-    else:
-        update_user_gold(user_id, -bet, "Verlust bei Blackjack")
-        await ctx.send(f"😞 Dealer gewinnt. Du verlierst {bet} Gold.")
-
-# --- Token laden & Bot starten ---
+# --- Token laden ---
 token = os.getenv('DISCORD_TOKEN')
 if not token:
-    print("❌ DISCORD_TOKEN nicht gefunden! Bitte füge deinen Token in den Secrets hinzu.")
+    print("❌ Kein DISCORD_TOKEN gefunden!")
     exit(1)
 
 bot.run(token)
