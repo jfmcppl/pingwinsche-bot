@@ -196,9 +196,9 @@ async def slotmachine(ctx, bet: int):
         update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
         await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
-        payout = int(bet * 0.8)
+        payout = int(bet * 1.5)  # 50% Gewinn auf den Einsatz
         update_user_gold(user_id, payout, "Kleingewinn bei Slotmachine (Zweier)")
-        await ctx.send(f"✨ Zwei Symbole gleich! Du bekommst {payout} Gold zurück.")
+        await ctx.send(f"✨ Zwei Symbole gleich! Du gewinnst {payout} Gold.")
     else:
         await ctx.send(f"😢 Kein Gewinn. Du verlierst deinen Einsatz von {bet} Gold.")
 
