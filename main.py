@@ -93,6 +93,7 @@ async def on_ready():
     print(f'🤖 Die Pingwinsche Staatsbank ist online als {bot.user}')
     load_bank()
     start_file_watcher()
+    print(f"📌 Registrierte Commands: {list(bot.commands)}")
 
 @bot.command()
 async def balance(ctx):
@@ -143,7 +144,7 @@ async def goldhistory(ctx):
 async def ping(ctx):
     await ctx.send("🏓 Pong!")
 
-# --- Casino Commands direkt in main.py ---
+# --- Casino Commands ---
 
 @bot.command()
 async def coinflip(ctx, bet: int, choice: str = None):
@@ -157,7 +158,6 @@ async def coinflip(ctx, bet: int, choice: str = None):
     if bet > gold:
         await ctx.send("Du hast nicht genug Gold!")
         return
-    
     if choice is None:
         await ctx.send("Bitte wähle Kopf oder Zahl! Beispiel: `!coinflip 100 Kopf`")
         return
@@ -168,7 +168,6 @@ async def coinflip(ctx, bet: int, choice: str = None):
         return
 
     result = random.choice(["kopf", "zahl"])
-    
     await ctx.send(f"🪙 Die Münze zeigt: **{result.capitalize()}**")
 
     if result == choice:
@@ -193,7 +192,6 @@ async def slotmachine(ctx, bet: int):
 
     slots = ['🍒', '🍋', '🍊', '🍉', '⭐', '💎']
     result = [random.choice(slots) for _ in range(3)]
-
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
     if result[0] == result[1] == result[2]:
@@ -246,11 +244,9 @@ async def blackjack(ctx, bet: int):
     player_hand = [deck.pop(), deck.pop()]
     dealer_hand = [deck.pop(), deck.pop()]
 
-    # Zeige initiale Karten
     await ctx.send(f"🃏 Deine Karten: {format_hand(player_hand)} (Wert: {hand_value(player_hand)})")
     await ctx.send(f"🃏 Dealer zeigt: {dealer_hand[0]} und eine verdeckte Karte")
 
-    # Prüfe auf Blackjack
     if hand_value(player_hand) == 21:
         if hand_value(dealer_hand) == 21:
             await ctx.send("🃏 Beide haben Blackjack! Unentschieden.")
@@ -260,20 +256,17 @@ async def blackjack(ctx, bet: int):
             await ctx.send(f"🎉 Blackjack! Du gewinnst {int(bet * 1.5)} Gold!")
             return
 
-    # Spieler ist dran - automatische Strategie (vereinfacht)
     while hand_value(player_hand) < 17:
         player_hand.append(deck.pop())
         await ctx.send(f"🃏 Du ziehst: {player_hand[-1]} | Deine Karten: {format_hand(player_hand)} (Wert: {hand_value(player_hand)})")
 
     player_total = hand_value(player_hand)
 
-    # Prüfe ob Spieler überkauft hat
     if player_total > 21:
         update_user_gold(user_id, -bet, "Verlust bei Blackjack (Bust)")
         await ctx.send(f"💥 Du hast dich überkauft! Du verlierst {bet} Gold.")
         return
 
-    # Dealer ist dran
     await ctx.send(f"🃏 Dealer deckt auf: {format_hand(dealer_hand)} (Wert: {hand_value(dealer_hand)})")
 
     while hand_value(dealer_hand) < 17:
@@ -282,7 +275,6 @@ async def blackjack(ctx, bet: int):
 
     dealer_total = hand_value(dealer_hand)
 
-    # Bestimme Gewinner
     if dealer_total > 21:
         update_user_gold(user_id, bet, "Gewinn bei Blackjack (Dealer Bust)")
         await ctx.send(f"🎉 Dealer hat sich überkauft! Du gewinnst {bet} Gold!")
@@ -303,5 +295,4 @@ if not token:
 
 bot.run(token)
 
-bot.run(token)
 
