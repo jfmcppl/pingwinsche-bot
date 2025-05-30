@@ -186,7 +186,7 @@ async def slotmachine(ctx, bet: int):
         await ctx.send("Du hast nicht genug Gold!")
         return
 
-    update_user_gold(user_id, -bet, "Einsatz bei Slotmachine", result="Einsatz")
+    update_user_gold(user_id, -bet, "Einsatz bei Slotmachine")
 
     weighted_slots = (
         ['🍒'] * 5 +
@@ -212,27 +212,27 @@ async def slotmachine(ctx, bet: int):
         '🍒': 0.5,
         '🍋': 0.6,
         '🍊': 0.7,
-        '🍉': 0.8,
-        '⭐': 0.9,
-        '💎': 1.0
+        '🍉': 1.0,
+        '⭐': 1.2,
+        '💎': 1.5
     }
 
     if result[0] == result[1] == result[2]:
         symbol = result[0]
         payout = int(bet * triple_multiplier_map.get(symbol, 3))
-        update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})", result=f"Jackpot mit {symbol}")
+        update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
         await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
+        # Symbol ermitteln, das mindestens 2x vorkommt
         if result[0] == result[1] or result[0] == result[2]:
             symbol = result[0]
         else:
             symbol = result[1]
 
         payout = int(bet * double_multiplier_map.get(symbol, 0.5))
-        update_user_gold(user_id, payout, f"Kleingewinn bei Slotmachine (Zweifach {symbol})", result=f"2x {symbol}")
+        update_user_gold(user_id, payout, f"Kleingewinn bei Slotmachine (Zweifach {symbol})")
         await ctx.send(f"✨ Zwei Symbole gleich ({symbol})! Du bekommst {payout} Gold zurück.")
     else:
-        update_user_gold(user_id, 0, "Verlust bei Slotmachine", result="Verlust")
         await ctx.send(f"😢 Kein Gewinn. Du verlierst deinen Einsatz von {bet} Gold.")
 
 @bot.command()
