@@ -116,6 +116,16 @@ async def addgold(ctx, member: discord.Member, amount: int, *, grund: str = "Man
     await ctx.send(f'{amount} Gold wurde dem Konto von {member.display_name} gutgeschrieben. Grund: {grund}')
 
 @bot.command()
+@commands.has_permissions(administrator=True)
+async def backupbank(ctx):
+    try:
+        await ctx.author.send(file=discord.File('bank.json'))
+        await ctx.send(f"{ctx.author.mention}, ich habe dir die aktuelle bank.json per DM geschickt.")
+    except Exception as e:
+        await ctx.send(f"Fehler beim Senden der Datei: {e}")
+
+
+@bot.command()
 async def goldhistory(ctx):
     user_id = str(ctx.author.id)
     load_bank()
