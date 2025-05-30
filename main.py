@@ -182,25 +182,46 @@ async def slotmachine(ctx, bet: int):
     result = [random.choice(weighted_slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
+    # Multiplikatoren für Dreier-Kombis (Jackpot)
+    triple_multiplier_map = {
+        '🍒': 3,
+        '🍋': 3.5,
+        '🍊': 4,
+        '🍉': 5,
+        '⭐': 10,
+        '💎': 20
+    }
+
+    # Multiplikatoren für Zweier-Kombis
+    double_multiplier_map = {
+        '🍒': 0.5,
+        '🍋': 0.6,
+        '🍊': 0.7,
+        '🍉': 0.8,
+        '⭐': 0.9,
+        '💎': 1.0
+    }
+
+    # Prüfen auf Dreier-Kombi
     if result[0] == result[1] == result[2]:
         symbol = result[0]
-        multiplier_map = {
-            '🍒': 3,
-            '🍋': 3.5,
-            '🍊': 4,
-            '🍉': 5,
-            '⭐': 10,
-            '💎': 20
-        }
-        payout = int(bet * multiplier_map.get(symbol, 3))
+        payout = int(bet * triple_multiplier_map.get(symbol, 3))
         update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
         await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
+    # Prüfen auf Zweier-Kombi
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
-        payout = int(bet * 1.2)  # 20% Gewinn bei zwei gleichen Symbolen
-        update_user_gold(user_id, payout, "Kleingewinn bei Slotmachine (Zweier)")
-        await ctx.send(f"✨ Zwei Symbole gleich! Du gewinnst {payout} Gold.")
+        # Symbol ermitteln, das mindestens 2x vorkommt
+        if result[0] == result[1] or result[0] == result[2]:
+            symbol = result[0]
+        else:
+            symbol = result[1]
+
+        payout = int(bet * double_multiplier_map.get(symbol, 0.5))
+        update_user_gold(user_id, payout, f"Kleingewinn bei Slotmachine (Zweifach {symbol})")
+        await ctx.send(f"✨ Zwei Symbole gleich ({symbol})! Du bekommst {payout} Gold zurück.")
     else:
         await ctx.send(f"😢 Kein Gewinn. Du verlierst deinen Einsatz von {bet} Gold.")
+
 
 @bot.command()
 async def blackjack(ctx, bet: int):
