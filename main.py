@@ -173,11 +173,14 @@ async def coinflip(ctx, bet: int, choice: str = None):
     result = random.choices(["kopf", "zahl"], weights=[winning_chance, 1 - winning_chance])[0]
     await ctx.send(f"🪙 Die Münze zeigt: **{result.capitalize()}**")
 
+    # Einsatz abziehen
+    update_user_gold(user_id, -bet, "Einsatz beim Coinflip")
+
     if result == choice:
-        update_user_gold(user_id, bet, "Gewinn beim Coinflip")
-        await ctx.send(f"🎉 Du hast gewonnen! Dein Gewinn: {bet} Gold.")
+        payout = int(bet * 1.9)  # Einsatz + Gewinn (Hausvorteil)
+        update_user_gold(user_id, payout, "Gewinn beim Coinflip")
+        await ctx.send(f"🎉 Du hast gewonnen! Dein Gewinn: {payout} Gold.")
     else:
-        update_user_gold(user_id, -bet, "Verlust beim Coinflip")
         await ctx.send(f"😢 Du hast verloren und {bet} Gold verloren.")
 
 @bot.command()
@@ -197,6 +200,9 @@ async def slotmachine(ctx, bet: int):
     result = [random.choice(slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
+    # Einsatz abziehen
+    update_user_gold(user_id, -bet, "Einsatz bei Slotmachine")
+
     # Hausvorteil einbauen: Gewinne werden leicht reduziert
     if result[0] == result[1] == result[2]:
         payout = int(bet * 4.5)  # statt 5
@@ -207,7 +213,6 @@ async def slotmachine(ctx, bet: int):
         update_user_gold(user_id, payout, "Gewinn bei Slotmachine (Zweier)")
         await ctx.send(f"🎉 Du hast zwei Symbole gleich! Gewinn: {payout} Gold.")
     else:
-        update_user_gold(user_id, -bet, "Verlust bei Slotmachine")
         await ctx.send(f"Leider kein Gewinn. Du verlierst {bet} Gold.")
 
 @bot.command()
@@ -222,6 +227,9 @@ async def blackjack(ctx, bet: int):
     if bet > gold:
         await ctx.send("Du hast nicht genug Gold!")
         return
+
+    # Einsatz direkt abziehen
+    update_user_gold(user_id, -bet, "Einsatz bei Blackjack")
 
     def card_value(card):
         if card in ['J', 'Q', 'K']:
@@ -266,13 +274,11 @@ async def blackjack(ctx, bet: int):
             player_hand.append(deck.pop())
             await ctx.send(f"Deine Karten: {format_hand(player_hand)} (Wert: {hand_value(player_hand)})")
             if hand_value(player_hand) > 21:
-                update_user_gold(user_id, -bet, "Verlust bei Blackjack (Bust)")
                 await ctx.send("Du hast überkauft! Du verlierst.")
                 return
         else:
             break
 
-    # Dealer zieht Karten nach Regeln
     while hand_value(dealer_hand) < 17:
         dealer_hand.append(deck.pop())
     await ctx.send(f"Dealer Karten: {format_hand(dealer_hand)} (Wert: {hand_value(dealer_hand)})")
@@ -281,19 +287,16 @@ async def blackjack(ctx, bet: int):
     dealer_score = hand_value(dealer_hand)
 
     if dealer_score > 21 or player_score > dealer_score:
-        payout = int(bet * 1.9)  # Hausvorteil: 1.9 statt 2
-        update_user_gold(user_id, payout, "Gewinn bei Blackjack")
-        await ctx.send(f"🎉 Du gewinnst! {payout} Gold.")
+        gewinn = int(bet * 0.9)  # 90% Gewinn auf Einsatz (Hausvorteil)
+        auszahlung = bet + gewinn  # Einsatz + Gewinn
+        update_user_gold(user_id, auszahlung, "Gewinn bei Blackjack")
+        await ctx.send(f"🎉 Du gewinnst! Du bekommst {auszahlung} Gold zurück (Einsatz + Gewinn).")
     elif player_score == dealer_score:
+        # Einsatz zurückgeben bei Unentschieden
+        update_user_gold(user_id, bet, "Unentschieden bei Blackjack - Einsatz zurück")
         await ctx.send("Unentschieden! Dein Einsatz wird zurückerstattet.")
     else:
-        update_user_gold(user_id, -bet, "Verlust bei Blackjack")
         await ctx.send(f"Du verlierst {bet} Gold.")
 
-# --- Bot Token Start ---
-if __name__ == "__main__":
-    TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-    if not TOKEN:
-        print("Fehler: Kein Token gesetzt! Bitte setze die Umgebungsvariable DISCORD_BOT_TOKEN.")
-    else:
-        bot.run(TOKEN)
+# --- Bot Token starten ---
+bot.run(os.getenv("DISCORD_TOKEN"))
