@@ -92,9 +92,8 @@ def update_user_gold(user_id, amount, reason, result=None):
     save_bank(bank_data)
 
 # --- Channel-ID für Casino-Befehle ---
-ALLOWED_CHANNEL_ID = 1377775929249497159  # Ersetze hier ggf. durch deine Channel-ID
+ALLOWED_CHANNEL_ID = 1377775929249497159
 
-# --- Decorator für Channel-Check ---
 def casino_channel_only():
     def predicate(ctx):
         return ctx.channel.id == ALLOWED_CHANNEL_ID
@@ -137,6 +136,33 @@ async def backupbank(ctx):
         await ctx.send(f"Fehler beim Senden der Datei: {e}")
 
 @bot.command()
+@commands.has_permissions(administrator=True)
+async def allbalances(ctx):
+    load_bank()
+    if not bank_data:
+        await ctx.send("Keine Konten gefunden.")
+        return
+
+    lines = []
+    for user_id, eintraege in bank_data.items():
+        try:
+            member = await ctx.guild.fetch_member(int(user_id))
+            name = member.display_name
+        except:
+            name = f"Unbekannt ({user_id})"
+        saldo = sum(e.get("betrag", 0) for e in eintraege)
+        lines.append(f"{name}: {saldo} Gold")
+
+    text = "\n".join(lines)
+    filename = "allbalances.txt"
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(text)
+
+    await ctx.author.send(file=discord.File(filename))
+    await ctx.send("\ud83d\udce4 Ich habe dir die Kontostände per DM geschickt.")
+    os.remove(filename)
+
+@bot.command()
 async def goldhistory(ctx):
     user_id = str(ctx.author.id)
     load_bank()
@@ -168,18 +194,11 @@ async def goldhistory(ctx):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("🏓 Pong!")
-
-# --- Casino Commands mit Channel-Check ---
+    await ctx.send("\ud83c\udfd3 Pong!")
 
 @bot.command()
 @casino_channel_only()
 async def slotmachine(ctx, bet: int):
-    allowed_channel_id = 1377775929249497159
-    if ctx.channel.id != allowed_channel_id:
-        await ctx.send(f"Dieser Befehl ist nur im dafür vorgesehenen Kanal erlaubt.")
-        return
-
     user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
@@ -187,56 +206,29 @@ async def slotmachine(ctx, bet: int):
     if bet <= 0:
         await ctx.send("Bitte setze einen positiven Betrag!")
         return
+    if bet > 10000:
+        await ctx.send("⚠️ Der maximale Einsatz beträgt 10.000 Gold.")
+        return
     if bet > gold:
         await ctx.send("Du hast nicht genug Gold!")
         return
 
     update_user_gold(user_id, -bet, "Einsatz bei Slotmachine")
 
-    weighted_slots = (
-        ['🍒'] * 5 +
-        ['🍋'] * 5 +
-        ['🍊'] * 4 +
-        ['🍉'] * 3 +
-        ['⭐']  * 2 +
-        ['💎']  * 1
-    )
+    weighted_slots = ['🍒'] * 5 + ['🍋'] * 5 + ['🍊'] * 4 + ['🍉'] * 3 + ['⭐'] * 2 + ['💎'] * 1
     result = [random.choice(weighted_slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
-    # Neue Multiplikatoren (spielerfreundlicher)
-    triple_multiplier_map = {
-        '🍒': 3,
-        '🍋': 3.5,
-        '🍊': 4,
-        '🍉': 5,
-        '⭐': 10,
-        '💎': 20
-    }
+    triple_multiplier_map = {'🍒': 3, '🍋': 3.5, '🍊': 4, '🍉': 5, '⭐': 10, '💎': 20}
+    double_multiplier_map = {'🍒': 0.7, '🍋': 0.8, '🍊': 0.8, '🍉': 1.0, '⭐': 1.0, '💎': 1.2}
 
-    double_multiplier_map = {
-        '🍒': 0.7,   # 70% zurück
-        '🍋': 0.8,   # 80% zurück
-        '🍊': 0.8,   # 80% zurück
-        '🍉': 1.0,   # 100% Einsatz zurück
-        '⭐': 1.0,   # 100% Einsatz zurück (kleiner Gewinn)
-        '💎': 1.2    # 120% Einsatz zurück (höherer Gewinn)
-    }
-
-    # Prüfen auf Dreier-Kombi (Jackpot)
     if result[0] == result[1] == result[2]:
         symbol = result[0]
         payout = int(bet * triple_multiplier_map.get(symbol, 3))
         update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
         await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
-    # Prüfen auf Zweier-Kombi
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
-        # Symbol ermitteln, das mindestens 2x vorkommt
-        if result[0] == result[1] or result[0] == result[2]:
-            symbol = result[0]
-        else:
-            symbol = result[1]
-
+        symbol = result[0] if result[0] == result[1] or result[0] == result[2] else result[1]
         payout = int(bet * double_multiplier_map.get(symbol, 0.5))
         update_user_gold(user_id, payout, f"Kleingewinn bei Slotmachine (Zweifach {symbol})")
         await ctx.send(f"✨ Zwei Symbole gleich ({symbol})! Du bekommst {payout} Gold zurück.")
@@ -253,6 +245,9 @@ async def blackjack(ctx, bet: int):
     if bet <= 0:
         await ctx.send("Bitte setze einen positiven Betrag!")
         return
+    if bet > 10000:
+        await ctx.send("⚠️ Der maximale Einsatz beträgt 10.000 Gold.")
+        return
     if bet > gold:
         await ctx.send("Du hast nicht genug Gold!")
         return
@@ -260,12 +255,7 @@ async def blackjack(ctx, bet: int):
     update_user_gold(user_id, -bet, "Einsatz bei Blackjack", result="Einsatz")
 
     def card_value(card):
-        if card in ['J', 'Q', 'K']:
-            return 10
-        elif card == 'A':
-            return 11
-        else:
-            return int(card)
+        return 10 if card in ['J', 'Q', 'K'] else 11 if card == 'A' else int(card)
 
     def hand_value(hand):
         value = sum(card_value(card) for card in hand)
@@ -327,7 +317,6 @@ async def blackjack(ctx, bet: int):
         update_user_gold(user_id, 0, "Verlust bei Blackjack", result="Verlust")
         await ctx.send(f"Du verlierst {bet} Gold.")
 
-# --- Fehlerbehandlung für Channel-Check ---
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
@@ -335,5 +324,4 @@ async def on_command_error(ctx, error):
     else:
         raise error
 
-# --- Bot starten ---
 bot.run(os.getenv('DISCORD_TOKEN'))
