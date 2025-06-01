@@ -249,24 +249,22 @@ async def slotmachine(ctx, bet: int):
 
     payout = 0
     if result[0] == result[1] == result[2]:
-        symbol = result[0]
-        payout = int(bet * triple_multiplier_map.get(symbol, 3))
-        update_user_gold(user_id, payout, f"Slot-Gewinn (Dreifach {symbol})")
-        update_user_gold("Casino", -payout, f"Slot-Gewinn an {ctx.author.name}")
-        await ctx.send(f"🎉 Jackpot mit {symbol}! Du gewinnst {payout} Gold.")
+        payout = int(bet * triple_multiplier_map.get(result[0], 1))
     elif result[0] == result[1] or result[1] == result[2] or result[0] == result[2]:
-        symbol = result[0] if result[0] == result[1] or result[0] == result[2] else result[1]
+        symbol = result[1] if result[1] == result[2] else result[0]
         payout = int(bet * double_multiplier_map.get(symbol, 0.5))
-        update_user_gold(user_id, payout, f"Kleingewinn bei Slotmachine (Zweifach {symbol})")
-        update_user_gold("Casino", -payout, f"Slot-Kleingewinn an {ctx.author.name}")
-        await ctx.send(f"✨ Zwei Symbole gleich ({symbol})! Du bekommst {payout} Gold zurück.")
+
+    if payout > 0:
+        update_user_gold(user_id, payout, "Gewinn bei Slotmachine")
+        update_user_gold("Casino", -payout, f"Slotmachine Gewinn an {ctx.author.name}")
+        await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     else:
-        await ctx.send(f"😢 Kein Gewinn. Du verlierst deinen Einsatz von {bet} Gold.")
+        await ctx.send("Leider kein Gewinn dieses Mal. Viel Glück beim nächsten Mal!")
 
 @bot.command()
 @casino_channel_only()
 async def blackjack(ctx, bet: int):
-   user_id = str(ctx.author.id)
+    user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
     casino_gold = get_user_gold("Casino")
@@ -288,7 +286,6 @@ async def blackjack(ctx, bet: int):
         await ctx.send("Das Casino hat nicht genug Gold, um deinen Einsatz zu decken.")
         return
 
-    # Einsatz nur einmal abziehen (beim Spieler) und beim Casino parken
     update_user_gold(user_id, -bet, "Einsatz bei Blackjack")
     update_user_gold("Casino", bet, f"Blackjack Einsatz von {ctx.author.name}")
 
@@ -320,7 +317,6 @@ async def blackjack(ctx, bet: int):
             msg = await bot.wait_for('message', timeout=30.0, check=check)
         except asyncio.TimeoutError:
             await ctx.send("Timeout! Du hast nicht reagiert. Das Spiel wird beendet.")
-            # Einsatz zurück an Spieler und Casino da Timeout
             update_user_gold(user_id, bet, "Blackjack Einsatz zurück (Timeout)")
             update_user_gold("Casino", -bet, f"Blackjack Einsatz zurück an {ctx.author.name}")
             return
@@ -332,13 +328,10 @@ async def blackjack(ctx, bet: int):
             await ctx.send(f"🃏 Du ziehst eine {card}. Neue Summe: {player_sum}")
             if player_sum > 21:
                 await ctx.send(f"💥 Du hast dich überkauft mit {player_sum}. Du verlierst deinen Einsatz.")
-                # Casino behält Einsatz -> kein Update nötig (Einsatz schon geparkt)
-                update_user_gold(user_id, 0, "Blackjack verloren")  # Keine Änderung für Spieler, Einsatz wurde schon abgezogen
                 return
         else:
             break
 
-    # Dealer spielt
     while dealer_sum < 17:
         dealer_cards.append(draw_card())
         dealer_sum = sum_cards(dealer_cards)
@@ -347,40 +340,35 @@ async def blackjack(ctx, bet: int):
 
     if dealer_sum > 21 or player_sum > dealer_sum:
         payout = bet * 2
-        # Gewinn auszahlen an Spieler (Einsatz + Gewinn)
         update_user_gold(user_id, payout, "Blackjack Gewinn")
         update_user_gold("Casino", -payout, f"Blackjack Gewinn an {ctx.author.name}")
         await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     elif player_sum == dealer_sum:
-        # Einsatz zurück an Spieler, Casino gibt Gold zurück
         update_user_gold(user_id, bet, "Blackjack Unentschieden (Einsatz zurück)")
         update_user_gold("Casino", -bet, f"Blackjack Unentschieden Rückzahlung an {ctx.author.name}")
         await ctx.send("🔄 Unentschieden! Dein Einsatz wurde zurückgegeben.")
     else:
-        # Spieler verliert Einsatz, Casino behält Einsatz (Einsatz schon geparkt)
-        update_user_gold(user_id, 0, "Blackjack verloren")
         await ctx.send("😢 Der Dealer gewinnt. Du verlierst deinen Einsatz.")
 
-@bot.command(name="hilfe")
-async def hilfe(ctx):
-    help_text = """
-**Pingwinsche Staatsbank Bot - Befehle:**
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def cleanbank(ctx):
+    load_bank()
+    new_bank = {}
 
-`!balance` - Zeigt deinen Kontostand.
-`!addgold <Benutzer/Casino> <Betrag> [Grund]` - (Admin) Fügt Gold hinzu.
-`!backupbank` - (Admin) Sendet die bank.json per DM.
-`!allbalances` - (Admin) Liste aller Kontostände per DM.
-`!goldhistory` - Zeigt deine letzten 10 Gold-Transaktionen und Gesamtbestand.
-`!casino_balance` - Zeigt das aktuelle Guthaben des Casinos.
-`!slotmachine <Einsatz>` - Spielt an der Slotmaschine (nur im Casino-Channel).
-`!blackjack <Einsatz>` - Spielt Blackjack (nur im Casino-Channel).
-`!ping` - Prüft die Bot-Antwortzeit.
+    for user_id, entries in bank_data.items():
+        if not entries:
+            continue
+        total = sum(entry.get("betrag", 0) for entry in entries)
+        last_10 = entries[-10:]
+        new_bank[user_id] = [
+            {"betrag": total, "grund": "Gesamtsaldo (bereinigt)"}
+        ] + last_10
 
-Casino-Spiele sind nur im Casino-Channel erlaubt.
-"""
-    await ctx.send(help_text)
+    save_bank(new_bank)
+    await ctx.send("✅ bank.json wurde bereinigt: pro Spieler nur noch Summe und letzte 10 Einträge gespeichert.")
 
-# --- Starte den Bot ---
+# --- Bot Token & Start ---
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 bot.run(TOKEN)
 
