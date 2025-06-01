@@ -174,7 +174,6 @@ async def allbalances(ctx):
     await ctx.author.send(file=discord.File(filename))
     await ctx.send("📤 Ich habe dir die Kontostände per DM geschickt.")
     os.remove(filename)
-
 @bot.command()
 async def goldhistory(ctx):
     user_id = str(ctx.author.id)
@@ -184,9 +183,12 @@ async def goldhistory(ctx):
         return
 
     all_entries = bank_data[user_id]
+
+    # Gesamtsumme aller Beträge berechnen
     total_gold = sum(e.get("betrag", 0) for e in all_entries)
 
-    last_entries = all_entries[-10:]  # letzte 10 Einträge
+    # Nur die letzten 10 Einträge anzeigen
+    last_entries = all_entries[-10:]
 
     lines = []
     for entry in last_entries:
@@ -198,7 +200,11 @@ async def goldhistory(ctx):
             line += f" | Ergebnis: {ergebnis}"
         lines.append(line)
 
-    lines.append(f"\nGesamt: {total_gold} Gold")
+    # Ausgabe
+    response = f"Deine letzten 10 Einträge (Gesamt: {total_gold} Gold):\n" + "\n".join(lines)
+    await ctx.send(response)
+
+
 
     filename = f"goldhistory_{user_id}.txt"
     with open(filename, "w", encoding="utf-8") as f:
@@ -349,7 +355,6 @@ async def blackjack(ctx, bet: int):
         await ctx.send("🔄 Unentschieden! Dein Einsatz wurde zurückgegeben.")
     else:
         await ctx.send("😢 Der Dealer gewinnt. Du verlierst deinen Einsatz.")
-
 @bot.command()
 @commands.has_permissions(administrator=True)
 async def cleanbank(ctx):
@@ -366,7 +371,10 @@ async def cleanbank(ctx):
         ] + last_10
 
     save_bank(new_bank)
+    load_bank()  # bank_data global aktualisieren
     await ctx.send("✅ bank.json wurde bereinigt: pro Spieler nur noch Summe und letzte 10 Einträge gespeichert.")
+
+
 
 # --- Bot Token & Start ---
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
