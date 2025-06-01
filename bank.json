@@ -177,6 +177,14 @@
         {
             "betrag": 0,
             "grund": "Startguthaben"
+        },
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
         }
     ],
     "372687187168460802": [
@@ -199,18 +207,200 @@
         {
             "betrag": 0,
             "grund": "Startguthaben"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
         }
     ],
     "352584882108760066": [
         {
             "betrag": 0,
             "grund": "Startguthaben"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
         }
     ],
     "714773202051792937": [
         {
             "betrag": 0,
             "grund": "Startguthaben"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 3800,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 3800,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 3800,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
         }
     ],
     "107920274678136832": [
@@ -567,6 +757,124 @@
             "betrag": 19000,
             "grund": "Gewinn bei Blackjack",
             "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 19000,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 80,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4a)"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 80,
+            "grund": "Kleingewinn bei Slotmachine (Zweifach \ud83c\udf4a)"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 10000,
+            "grund": "R\u00fcckzahlung bei Unentschieden (Blackjack)",
+            "ergebnis": "Unentschieden"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 19000,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 19000,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Slotmachine"
         }
     ],
     "332790783474270208": [
@@ -577,6 +885,124 @@
         {
             "betrag": 5000,
             "grund": "Bonus vom Leadercut"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 9500,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 9500,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 9500,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -3500,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": 9000,
+            "grund": "Einzahlung ingame"
+        },
+        {
+            "betrag": -9000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 17100,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
+        },
+        {
+            "betrag": -7100,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack (Bust)",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
         },
         {
             "betrag": -5000,
@@ -607,6 +1033,34 @@
         {
             "betrag": 5000,
             "grund": "Bonus vom Leadercut"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        },
+        {
+            "betrag": 15000,
+            "grund": "Danke f\u00fcr den co lead und das adds clearen \u2764\ufe0f"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 0,
+            "grund": "Verlust bei Blackjack",
+            "ergebnis": "Verlust"
+        },
+        {
+            "betrag": -10000,
+            "grund": "Einsatz bei Blackjack",
+            "ergebnis": "Einsatz"
+        },
+        {
+            "betrag": 19000,
+            "grund": "Gewinn bei Blackjack",
+            "ergebnis": "Gewinn"
         }
     ],
     "249580078453751819": [
@@ -975,6 +1429,44 @@
         {
             "betrag": 5000,
             "grund": "Bonus vom Leadercut"
+        }
+    ],
+    "130342837119221760": [
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        }
+    ],
+    "669817884096069666": [
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        }
+    ],
+    "227496075127160833": [
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
+        }
+    ],
+    "187018307231154176": [
+        {
+            "betrag": 77687,
+            "grund": "Booster cut vom 01.06.2025"
+        }
+    ],
+    "1319436688665219083": [
+        {
+            "betrag": 5000,
+            "grund": "Leadercut Share"
         }
     ]
 }
