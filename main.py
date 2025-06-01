@@ -266,7 +266,7 @@ async def slotmachine(ctx, bet: int):
 @bot.command()
 @casino_channel_only()
 async def blackjack(ctx, bet: int):
-    user_id = str(ctx.author.id)
+   user_id = str(ctx.author.id)
     load_bank()
     gold = get_user_gold(user_id)
     casino_gold = get_user_gold("Casino")
@@ -288,8 +288,9 @@ async def blackjack(ctx, bet: int):
         await ctx.send("Das Casino hat nicht genug Gold, um deinen Einsatz zu decken.")
         return
 
+    # Einsatz nur einmal abziehen (beim Spieler) und beim Casino parken
     update_user_gold(user_id, -bet, "Einsatz bei Blackjack")
-    update_user_gold("Casino", -bet, f"Blackjack Einsatz von {ctx.author.name}")
+    update_user_gold("Casino", bet, f"Blackjack Einsatz von {ctx.author.name}")
 
     def draw_card():
         cards = [2,3,4,5,6,7,8,9,10,10,10,10,11]
@@ -300,7 +301,6 @@ async def blackjack(ctx, bet: int):
 
     def sum_cards(cards):
         s = sum(cards)
-        # As (11) auf 1 reduzieren wenn über 21
         aces = cards.count(11)
         while s > 21 and aces > 0:
             s -= 10
@@ -320,8 +320,9 @@ async def blackjack(ctx, bet: int):
             msg = await bot.wait_for('message', timeout=30.0, check=check)
         except asyncio.TimeoutError:
             await ctx.send("Timeout! Du hast nicht reagiert. Das Spiel wird beendet.")
-            update_user_gold("Casino", bet, f"Blackjack Einsatz zurück an {ctx.author.name}")
+            # Einsatz zurück an Spieler und Casino da Timeout
             update_user_gold(user_id, bet, "Blackjack Einsatz zurück (Timeout)")
+            update_user_gold("Casino", -bet, f"Blackjack Einsatz zurück an {ctx.author.name}")
             return
 
         if msg.content.lower() == "hit":
@@ -331,8 +332,8 @@ async def blackjack(ctx, bet: int):
             await ctx.send(f"🃏 Du ziehst eine {card}. Neue Summe: {player_sum}")
             if player_sum > 21:
                 await ctx.send(f"💥 Du hast dich überkauft mit {player_sum}. Du verlierst deinen Einsatz.")
-                update_user_gold("Casino", bet, f"Blackjack Gewinn an Casino von {ctx.author.name}")
-                update_user_gold(user_id, -bet, "Blackjack verloren")
+                # Casino behält Einsatz -> kein Update nötig (Einsatz schon geparkt)
+                update_user_gold(user_id, 0, "Blackjack verloren")  # Keine Änderung für Spieler, Einsatz wurde schon abgezogen
                 return
         else:
             break
@@ -346,16 +347,18 @@ async def blackjack(ctx, bet: int):
 
     if dealer_sum > 21 or player_sum > dealer_sum:
         payout = bet * 2
+        # Gewinn auszahlen an Spieler (Einsatz + Gewinn)
         update_user_gold(user_id, payout, "Blackjack Gewinn")
         update_user_gold("Casino", -payout, f"Blackjack Gewinn an {ctx.author.name}")
         await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     elif player_sum == dealer_sum:
+        # Einsatz zurück an Spieler, Casino gibt Gold zurück
         update_user_gold(user_id, bet, "Blackjack Unentschieden (Einsatz zurück)")
         update_user_gold("Casino", -bet, f"Blackjack Unentschieden Rückzahlung an {ctx.author.name}")
         await ctx.send("🔄 Unentschieden! Dein Einsatz wurde zurückgegeben.")
     else:
-        update_user_gold("Casino", bet, f"Blackjack Gewinn an Casino von {ctx.author.name}")
-        update_user_gold(user_id, -bet, "Blackjack verloren")
+        # Spieler verliert Einsatz, Casino behält Einsatz (Einsatz schon geparkt)
+        update_user_gold(user_id, 0, "Blackjack verloren")
         await ctx.send("😢 Der Dealer gewinnt. Du verlierst deinen Einsatz.")
 
 @bot.command(name="hilfe")
