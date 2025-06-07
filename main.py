@@ -251,8 +251,8 @@ async def slotmachine(ctx, bet: int):
     result = [random.choice(weighted_slots) for _ in range(3)]
     await ctx.send(f"🎰 Ergebnis: {' | '.join(result)}")
 
-    triple_multiplier_map = {'🍒': 3, '🍋': 3.5, '🍊': 4, '🍉': 5, '⭐': 10, '💎': 20}
-    double_multiplier_map = {'🍒': 0.7, '🍋': 0.8, '🍊': 0.8, '🍉': 1.0, '⭐': 1.0, '💎': 1.2}
+triple_multiplier_map = {'🍒': 2, '🍋': 2.5, '🍊': 3, '🍉': 3.5, '⭐': 5, '💎': 8}
+double_multiplier_map = {'🍒': 0.3, '🍋': 0.4, '🍊': 0.5, '🍉': 0.6, '⭐': 0.7, '💎': 0.9}
 
     payout = 0
     if result[0] == result[1] == result[2]:
