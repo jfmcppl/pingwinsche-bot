@@ -271,8 +271,6 @@ async def slotmachine(ctx, bet: int):
 @bot.command()
 @casino_channel_only()
 
-@bot.command()
-@casino_channel_only()
 async def blackjack(ctx, bet: int):
     user_id = str(ctx.author.id)
     load_bank()
