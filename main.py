@@ -226,6 +226,7 @@ async def slotmachine(ctx, bet: int):
     load_bank()
     gold = get_user_gold(user_id)
     casino_gold = get_user_gold("Casino")
+    jackpot_gold = get_user_gold("Jackpot")
 
     if casino_gold <= 0:
         await ctx.send("⚠️ Das Casino hat kein Gold mehr und kann keine Spiele anbieten. Bitte warte, bis das Casino wieder aufgefüllt wird.")
@@ -261,11 +262,25 @@ async def slotmachine(ctx, bet: int):
         symbol = result[1] if result[1] == result[2] else result[0]
         payout = int(bet * double_multiplier_map.get(symbol, 0.5))
 
+    # Jackpot-Gewinnbedingung: genau 2 Sterne und 1 Diamant
+    if sorted(result) == sorted(['⭐', '⭐', '💎']):
+        if jackpot_gold > 0:
+            payout = jackpot_gold
+            update_user_gold(user_id, payout, "Jackpot Gewinn bei Slotmachine")
+            update_user_gold("Jackpot", -payout, f"Jackpot Auszahlung an {ctx.author.name}")
+            await ctx.send(f"🎉 JACKPOT! Du gewinnst den gesamten Jackpot von {payout} Gold!")
+        else:
+            await ctx.send("🎰 Ergebnis: {} | Jackpot ist leider noch leer.".format(' | '.join(result)))
+        return
+
     if payout > 0:
         update_user_gold(user_id, payout, "Gewinn bei Slotmachine")
         update_user_gold("Casino", -payout, f"Slotmachine Gewinn an {ctx.author.name}")
         await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     else:
+        # 20% vom verlorenen Einsatz in den Jackpot einzahlen
+        jackpot_contribution = int(bet * 0.2)
+        update_user_gold("Jackpot", jackpot_contribution, "Loser Jackpot Einzahlung")
         await ctx.send("Leider kein Gewinn dieses Mal. Viel Glück beim nächsten Mal!")
 
 @bot.command()
