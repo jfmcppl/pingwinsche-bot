@@ -150,6 +150,13 @@ async def backupbank(ctx):
         await ctx.send(f"Fehler beim Senden der Datei: {e}")
 
 @bot.command()
+@casino_channel_only()
+async def jackpot(ctx):
+    load_bank()
+    jackpot_gold = get_user_gold("Jackpot")
+    await ctx.send(f"💰 Der aktuelle Jackpot beträgt {jackpot_gold} Gold.")
+
+@bot.command()
 @commands.has_permissions(administrator=True)
 async def allbalances(ctx):
     load_bank()
@@ -282,12 +289,7 @@ async def slotmachine(ctx, bet: int):
         update_user_gold("Jackpot", jackpot_contribution, "Loser Jackpot Einzahlung")
         await ctx.send(f"Leider kein Gewinn dieses Mal. {jackpot_contribution} Gold wurden zum Jackpot hinzugefügt. Viel Glück beim nächsten Mal!")
 
-@bot.command()
-@casino_channel_only()
-async def jackpot(ctx):
-    load_bank()
-    jackpot_gold = get_user_gold("Jackpot")
-    await ctx.send(f"💰 Der aktuelle Jackpot beträgt {jackpot_gold} Gold.")
+
 
 @bot.command()
 @casino_channel_only()
