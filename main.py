@@ -278,10 +278,10 @@ async def slotmachine(ctx, bet: int):
         update_user_gold("Casino", -payout, f"Slotmachine Gewinn an {ctx.author.name}")
         await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     else:
-        # 20% vom verlorenen Einsatz in den Jackpot einzahlen
         jackpot_contribution = int(bet * 0.2)
         update_user_gold("Jackpot", jackpot_contribution, "Loser Jackpot Einzahlung")
-        await ctx.send("Leider kein Gewinn dieses Mal. Viel Glück beim nächsten Mal!")
+        await ctx.send(f"Leider kein Gewinn dieses Mal. {jackpot_contribution} Gold wurden zum Jackpot hinzugefügt. Viel Glück beim nächsten Mal!")
+
 
 @bot.command()
 @casino_channel_only()
