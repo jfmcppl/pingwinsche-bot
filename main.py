@@ -271,52 +271,15 @@ async def slotmachine(ctx, bet: int):
 @bot.command()
 @casino_channel_only()
 
-DAILY_WINS_FILE = 'daily_wins.json'
-daily_wins = {}
-
-def load_daily_wins():
-    global daily_wins
-    if not os.path.exists(DAILY_WINS_FILE):
-        with open(DAILY_WINS_FILE, 'w', encoding='utf-8') as f:
-            json.dump({}, f)
-    try:
-        with open(DAILY_WINS_FILE, 'r', encoding='utf-8') as f:
-            daily_wins = json.load(f)
-    except json.JSONDecodeError:
-        daily_wins = {}
-
-def save_daily_wins():
-    with open(DAILY_WINS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(daily_wins, f, indent=4)
-
-def reset_daily_wins_if_new_day():
-    today = datetime.date.today().isoformat()
-    if daily_wins.get("date") != today:
-        daily_wins.clear()
-        daily_wins["date"] = today
-        save_daily_wins()
-
-def get_user_daily_win(user_id):
-    return daily_wins.get(user_id, 0)
-
-def add_user_daily_win(user_id, amount):
-    if user_id not in daily_wins:
-        daily_wins[user_id] = 0
-    daily_wins[user_id] += amount
-    save_daily_wins()
-
 @bot.command()
 @casino_channel_only()
 async def blackjack(ctx, bet: int):
     user_id = str(ctx.author.id)
     load_bank()
-    load_daily_wins()
-    reset_daily_wins_if_new_day()
-
+    
     gold = get_user_gold(user_id)
     casino_gold = get_user_gold("Casino")
 
-    MAX_DAILY_WIN = 100000
     MAX_BET = 2500
 
     if casino_gold <= 0:
@@ -381,15 +344,9 @@ async def blackjack(ctx, bet: int):
     elif player_blackjack:
         payout = int(effective_bet * 2.2)
         # Gewinnlimit prüfen
-        daily_win = get_user_daily_win(user_id)
-        if daily_win + payout > MAX_DAILY_WIN:
-            payout = max(0, MAX_DAILY_WIN - daily_win)
-            if payout == 0:
-                await ctx.send(f"⚠️ Du hast dein tägliches Gewinnlimit von {MAX_DAILY_WIN} Gold erreicht. Kein Gewinn möglich.")
-                return
+       
         update_user_gold(user_id, payout, "Blackjack echter Blackjack Gewinn")
         update_user_gold("Casino", -payout, f"Blackjack Gewinn an {ctx.author.name}")
-        add_user_daily_win(user_id, payout)
         await ctx.send(f"🎉 ECHTER BLACKJACK! Du gewinnst {payout} Gold!")
         return
 
@@ -428,15 +385,10 @@ async def blackjack(ctx, bet: int):
     if dealer_sum > 21 or player_sum > dealer_sum:
         payout = int(effective_bet * 1.8)
         # Gewinnlimit prüfen
-        daily_win = get_user_daily_win(user_id)
-        if daily_win + payout > MAX_DAILY_WIN:
-            payout = max(0, MAX_DAILY_WIN - daily_win)
-            if payout == 0:
-                await ctx.send(f"⚠️ Du hast dein tägliches Gewinnlimit von {MAX_DAILY_WIN} Gold erreicht. Kein Gewinn möglich.")
-                return
+      
         update_user_gold(user_id, payout, "Blackjack Gewinn")
         update_user_gold("Casino", -payout, f"Blackjack Gewinn an {ctx.author.name}")
-        add_user_daily_win(user_id, payout)
+       
         await ctx.send(f"🎉 Du gewinnst {payout} Gold!")
     else:
         await ctx.send("😢 Der Dealer gewinnt. Du verlierst deinen Einsatz.")
