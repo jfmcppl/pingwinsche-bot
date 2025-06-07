@@ -9,6 +9,7 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import asyncio
+import datetime
 
 # --- Webserver-Setup für UptimeRobot ---
 app = Flask('')
@@ -269,7 +270,6 @@ async def slotmachine(ctx, bet: int):
 
 @bot.command()
 @casino_channel_only()
-import datetime
 
 DAILY_WINS_FILE = 'daily_wins.json'
 daily_wins = {}
