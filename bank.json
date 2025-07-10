@@ -1,30 +1,1919 @@
 {
-    "721719176183677059": [],
-    "1215319399213305946": [],
-    "372687187168460802": [],
-    "227460663637704706": [],
-    "285812791670079490": [],
-    "352584882108760066": [],
-    "714773202051792937": [],
-    "107920274678136832": [],
-    "544619713762689036": [],
-    "332790783474270208": [],
-    "233250625738113024": [],
-    "191583450283769856": [],
-    "249580078453751819": [],
+    "721719176183677059": [
+        {
+            "betrag": 17777,
+            "grund": "Manuelle \u00c4nderung"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 300,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 1710,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 100,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 60,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 1710,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 400,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 400,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 300,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 500,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 2090,
+            "grund": "Blackjack echter Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 1710,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 600,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 500,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 400,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -100,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 83000,
+            "grund": "Ping Cut"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 5423,
+            "grund": "Jackpot Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1400,
+            "grund": "Gewinn bei Slotmachine"
+        }
+    ],
+    "1215319399213305946": [
+        {
+            "betrag": 19720,
+            "grund": "pre reset gold"
+        }
+    ],
+    "372687187168460802": [
+        {
+            "betrag": 10158,
+            "grund": "Booster"
+        },
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "227460663637704706": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "285812791670079490": [
+        {
+            "betrag": 2540,
+            "grund": "Backup"
+        },
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "352584882108760066": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "714773202051792937": [
+        {
+            "betrag": 2540,
+            "grund": "Backup"
+        },
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "107920274678136832": [
+        {
+            "betrag": 2540,
+            "grund": "Backup"
+        },
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "544619713762689036": [
+        {
+            "betrag": 12840,
+            "grund": "pre reset gold"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": 2540,
+            "grund": "Backup"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 300,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 250,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 350,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -20,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 60,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 400,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 180,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "332790783474270208": [
+        {
+            "betrag": 22540,
+            "grund": "2xTF + Backup"
+        },
+        {
+            "betrag": 4232,
+            "grund": "Management"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        },
+        {
+            "betrag": 8300,
+            "grund": "Management"
+        }
+    ],
+    "233250625738113024": [
+        {
+            "betrag": 10158,
+            "grund": "Booster"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        }
+    ],
+    "191583450283769856": [
+        {
+            "betrag": 10158,
+            "grund": "Booster"
+        },
+        {
+            "betrag": 4230,
+            "grund": "Management Cut"
+        },
+        {
+            "betrag": 120000,
+            "grund": "yak"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 2000,
+            "grund": "Blackjack Einsatz zur\u00fcck (Timeout)"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 3420,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -120000,
+            "grund": "paid the yak"
+        },
+        {
+            "betrag": 29880,
+            "grund": "Elite"
+        },
+        {
+            "betrag": 8300,
+            "grund": "Management"
+        }
+    ],
+    "249580078453751819": [
+        {
+            "betrag": 10000,
+            "grund": "1xTF"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 5000,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1250,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1250,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -1775,
+            "grund": "Einsatz bei Slotmachine"
+        }
+    ],
     "749961496766709831": [],
-    "736427762201657344": [],
-    "267751826147770369": [],
+    "736427762201657344": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "267751826147770369": [
+        {
+            "betrag": 12540,
+            "grund": "1x TF and Backup"
+        },
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
     "130342837119221760": [],
     "669817884096069666": [],
     "227496075127160833": [],
     "187018307231154176": [],
-    "1319436688665219083":[],
-    "Casino": [],
+    "1319436688665219083": [
+        {
+            "betrag": 17777,
+            "grund": "Veteran"
+        },
+        {
+            "betrag": 99600,
+            "grund": "Giveaway for 25.06.-30.06."
+        },
+        {
+            "betrag": 80000,
+            "grund": "Giveaway"
+        }
+    ],
+    "Casino": [
+        {
+            "betrag": 30000,
+            "grund": "have fun"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -300,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1710,
+            "grund": "Blackjack Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -100,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -60,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1710,
+            "grund": "Blackjack Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -800,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -800,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -800,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -400,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -400,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -300,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 20000,
+            "grund": "Manuelle \u00c4nderung"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -700,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -140,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -100,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von 0esi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von 0esi"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an 0esi"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von 0esi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von 0esi"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -5000,
+            "grund": "Slotmachine Gewinn an 0esi"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -1250,
+            "grund": "Slotmachine Gewinn an 0esi"
+        },
+        {
+            "betrag": 50000,
+            "grund": "Manuelle \u00c4nderung"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -1250,
+            "grund": "Slotmachine Gewinn an 0esi"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von 0esi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von 0esi"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -1775,
+            "grund": "Slotmachine Einsatz von 0esi"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -2090,
+            "grund": "Blackjack Gewinn an pennerbrause"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1710,
+            "grund": "Blackjack Gewinn an pennerbrause"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": -4275,
+            "grund": "Blackjack Gewinn an das_pasi"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -600,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -400,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 5,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 95,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 5,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 95,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Blackjack Einsatz zur\u00fcck an juanted94"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": -3420,
+            "grund": "Blackjack Gewinn an juanted94"
+        },
+        {
+            "betrag": 100,
+            "grund": "Blackjack Einsatzsteuer von juanted94"
+        },
+        {
+            "betrag": 1900,
+            "grund": "Blackjack Einsatz von juanted94"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": -1710,
+            "grund": "Blackjack Gewinn an das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": -1710,
+            "grund": "Blackjack Gewinn an das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": 50,
+            "grund": "Blackjack Einsatzsteuer von das_pasi"
+        },
+        {
+            "betrag": 950,
+            "grund": "Blackjack Einsatz von das_pasi"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -300,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": 5,
+            "grund": "Blackjack Einsatzsteuer von pennerbrause"
+        },
+        {
+            "betrag": 95,
+            "grund": "Blackjack Einsatz von pennerbrause"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": 125,
+            "grund": "Blackjack Einsatzsteuer von tonylesmontana"
+        },
+        {
+            "betrag": 2375,
+            "grund": "Blackjack Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -300,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -250,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -350,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -20,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -60,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -400,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -180,
+            "grund": "Slotmachine Gewinn an tonylesmontana"
+        },
+        {
+            "betrag": -200,
+            "grund": "Slotmachine Einsatz von tonylesmontana"
+        },
+        {
+            "betrag": -500,
+            "grund": "Slotmachine Einsatz von usainbolton"
+        },
+        {
+            "betrag": -250,
+            "grund": "Slotmachine Gewinn an usainbolton"
+        },
+        {
+            "betrag": -250,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -300,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -150,
+            "grund": "Slotmachine Gewinn an das_pasi"
+        },
+        {
+            "betrag": -350,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -123,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -10,
+            "grund": "Slotmachine Einsatz von das_pasi"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Slotmachine Einsatz von pennerbrause"
+        },
+        {
+            "betrag": -1400,
+            "grund": "Slotmachine Gewinn an pennerbrause"
+        }
+    ],
     "691726668359794749": [],
     "1224017623747002379": [],
     "157571019891146752": [],
     "284768660088684545": [],
-    "766252746771791884": []
+    "766252746771791884": [
+        {
+            "betrag": 28015,
+            "grund": "pre reset gold"
+        },
+        {
+            "betrag": 22540,
+            "grund": "2xTF + Backup"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1000,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1000,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 800,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -2000,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 1000,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 700,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 140,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 100,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -200,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -2500,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 4275,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 1710,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": 1710,
+            "grund": "Blackjack Gewinn"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -1000,
+            "grund": "Einsatz bei Blackjack"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 300,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 200,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        },
+        {
+            "betrag": -250,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -300,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 150,
+            "grund": "Gewinn bei Slotmachine"
+        },
+        {
+            "betrag": -350,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -123,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 50000,
+            "grund": "Giveaway payout"
+        },
+        {
+            "betrag": -10,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": -50000,
+            "grund": "giveaway paid"
+        }
+    ],
+    "234068435414286336": [
+        {
+            "betrag": 22540,
+            "grund": "2x TF Backup"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        }
+    ],
+    "271047019773165570": [
+        {
+            "betrag": 10158,
+            "grund": "Booster"
+        },
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "302557531199373312": [
+        {
+            "betrag": 2540,
+            "grund": "Backup"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        }
+    ],
+    "336451591295205388": [
+        {
+            "betrag": 27777,
+            "grund": "1xTF + Veteran"
+        },
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "208721287219118082": [
+        {
+            "betrag": 27777,
+            "grund": "1xTF + Veteran"
+        },
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        }
+    ],
+    "Jackpot": [
+        {
+            "betrag": 400,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 400,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 400,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 400,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 500,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 500,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 355,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 200,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 100,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 100,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 100,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 100,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 4,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 40,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 50,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 70,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": 24,
+            "grund": "Loser Jackpot Einzahlung"
+        },
+        {
+            "betrag": -5423,
+            "grund": "Jackpot Auszahlung an pennerbrause"
+        },
+        {
+            "betrag": 2,
+            "grund": "Loser Jackpot Einzahlung"
+        }
+    ],
+    "995748628964573244": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "518458298689912832": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "526494616078385214": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "173196147844710401": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        }
+    ],
+    "270206077734354946": [
+        {
+            "betrag": 511,
+            "grund": "Backup"
+        },
+        {
+            "betrag": -500,
+            "grund": "Einsatz bei Slotmachine"
+        },
+        {
+            "betrag": 250,
+            "grund": "Gewinn bei Slotmachine"
+        }
+    ],
+    "225005669097537536": [
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "386272156176351233": [
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "616740366489485358": [
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "161521183299338240": [
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "259651720336900096": [
+        {
+            "betrag": 3320,
+            "grund": "Casual"
+        }
+    ],
+    "1255879964096593961": [
+        {
+            "betrag": 6640,
+            "grund": "Veteran"
+        }
+    ],
+    "190194496175210496": [
+        {
+            "betrag": 29880,
+            "grund": "Elite"
+        }
+    ]
 }
-   
