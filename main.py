@@ -121,18 +121,46 @@ async def balance(ctx):
 
 @bot.command()
 @commands.has_permissions(administrator=True)
-async def addgold(ctx, member: str, amount: int, *, grund: str = "Manuelle Änderung"):
+async def addgold(ctx, target: str, amount: int, *, grund: str = "Manuelle Änderung"):
     load_bank()
-    user_id = member if member == "Casino" else None
-    if user_id is None:
-        try:
-            user_obj = await commands.MemberConverter().convert(ctx, member)
-            user_id = str(user_obj.id)
-        except commands.BadArgument:
-            await ctx.send(f"Benutzer {member} wurde nicht gefunden.")
-            return
-    update_user_gold(user_id, amount, grund)
-    await ctx.send(f'{amount} Gold wurde dem Konto von {member} gutgeschrieben. Grund: {grund}')
+
+    # Spezieller Fall "Casino"
+    if target == "Casino":
+        update_user_gold("Casino", amount, grund)
+        await ctx.send(f"{amount} Gold wurden dem Casino gutgeschrieben. Grund: {grund}")
+        return
+
+    # Versuch: Ist es ein Member?
+    try:
+        member_obj = await commands.MemberConverter().convert(ctx, target)
+        user_id = str(member_obj.id)
+        update_user_gold(user_id, amount, grund)
+        await ctx.send(f"{amount} Gold wurde dem Konto von {member_obj.display_name} gutgeschrieben. Grund: {grund}")
+        return
+    except commands.BadArgument:
+        pass  # Kein einzelner Benutzer — prüfen, ob es eine Rolle ist
+
+    # Versuch: Ist es eine Rolle?
+    role = discord.utils.get(ctx.guild.roles, name=target)
+    if role is None:
+        await ctx.send(f"⚠️ Rolle oder Benutzer `{target}` wurde nicht gefunden.")
+        return
+
+    members = [m for m in role.members if not m.bot]
+    if not members:
+        await ctx.send(f"⚠️ Die Rolle `{role.name}` hat keine Mitglieder.")
+        return
+
+    amount_per_user = amount // len(members)
+    remainder = amount % len(members)
+
+    for member in members:
+        update_user_gold(str(member.id), amount_per_user, f"{grund} ({role.name})")
+
+    await ctx.send(f"✅ {amount} Gold wurden aufgeteilt: {amount_per_user} Gold pro Mitglied der Rolle `{role.name}` ({len(members)} Mitglieder).")
+    if remainder > 0:
+        await ctx.send(f"ℹ️ Hinweis: {remainder} Gold konnten nicht gleichmäßig aufgeteilt werden und wurden verworfen.")
+
 
 @bot.command()
 async def casino_balance(ctx):
